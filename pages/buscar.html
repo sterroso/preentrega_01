@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- El atributo href de este elemento permite que todos los 
+        enlaces de este html sean relativos a esta ruta.
+        Se actualizará cuando se publique en el servidor de producción. -->
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar lugares para rentar</title>
+    <link rel="stylesheet" href="../css/normal.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo"><img src="img/rentmein_logo_128x128.png" alt="RentMe In logo"></div>
+        <div>
+            <h1 class="main-title">RentMe In</h1>
+            <div class="user-area">
+                <p><a href="pages/registro.html" class="register">registrarme</a></p>
+                <p><a href="pages/login.html" class="login">entrar</a></p>
+            </div>
+            <div class="search-top">
+                <form action="pages/buscar.html" method="post" id="top_search_form">
+                    <input type="search" name="query">
+                    <input type="submit" value="buscar">
+                </form>
+            </div>
+            <div class="main-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="pages/buscar.html">Busco una propiedad</a></li>
+                        <li><a href="pages/arrendadores.html">Quiero rentar mi propiedad</a></li>
+                        <li><a href="pages/contacto.html">Contacto</a></li>
+                        <li><a href="pages/preguntas.html">P+F</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!--
+        <iframe
+            class="main-map"
+            width="100%"
+            height="1024"
+            frameborder="0" style="border:0"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS"
+            allowfullscreen>
+        </iframe>
+        -->
+        <img src="img/map_background.jpg" alt="Mapa incrustado de Google Maps" width="100%">
+        <div class="map-search-filters">
+            <form action="post" class="filters-form">
+                <fieldset class="filters">
+                    <legend>Filtros</legend>
+                    <div class="filter-field-compact">
+                        <label for="tipo">Tipo</label>
+                        <select name="tipo" id="tipo">
+                            <option value="i" selected>Individual</option>
+                            <option value="c">Compartido</option>
+                            <option value="f">Familiar</option>
+                            <option value="t">Temporal</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-field-compact">
+                        <label for="superficie">Superficie</label>
+                        <input type="range" name="superficie" id="superficie" min="15" max="10000" value="50" step="1">
+                        <output for="superficie" id="superficie_promedio" class="decimal thousands">50</output>
+                    </div>
+
+                    <div class="filter-field-compact">
+                        <label for="distancia">Distancia</label>
+                        <input type="range" name="distnacia" id="distancia" min="0" max="100" step="2.5" value="5">
+                        <output for="distancia" id="distancia_desde_mi_ubicacion" class="decimal 2-decimals thousands">5</output>
+                    </div>
+
+                    <div class="filter-field-compact">
+                        <label for="precio_maximo">Precio Máximo</label>
+                        <input type="range" name="precio_maximo" id="precio_maximo" min="1" max="50000" value="5000">
+                        <output for="precio_maximo" id="precio_maximo_renta" class="currency">5000</output>
+                    </div>
+
+                    <div class="filter-field-compact">
+                        <label for="mascotas">Mascotas</label>
+                        <input type="checkbox" name="mascotas" id="mascotas" class="slider">
+                    </div>
+                </fieldset>
+                <input type="button" value="Más filtros ...">
+                <input type="submit" value="Filtrar">
+            </form>
+        </div>
+    </main>
+
+    <!-- Pié de página -->
+    <footer>
+        <div class="logo"><img src="img/rentmein_logo_128x128.png" alt="RentMe In logo"></div>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="pages/privacidad.html">Política de privacidad</a></li>
+                <li><a href="pages/bolsa_de_trabajo.html">Bolsa de trabajo</a></li>
+                <li><a href="pages/nosotros.html">¿Quiénes somos?</a></li>
+                <li><a href="pages/arrendadores.html">¿Quieres publicar tu propiedad?</a></li>
+                <li><a href="pages/proveedores.html">¿Quiéres ser nuestro proveedor?</a></li>
+            </ul>
+        </div>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="pages/contacto.html">Contáctanos</a></li>
+                <li><ul class="social-media-links">
+                    <li><a href="https://instagram.com/rentmein/"><img src="" alt="Instagram: RentMe In"></a></li>
+                    <li><a href="https://wa.me/529671410559"><img src="" alt="Mensaje por WhatsApp"></a></li>
+                    <li><a href="https://pinterest.com/rentmein/"><img src="" alt="Pinterest: RentMe In"></a></li>
+                    <li><a href="https://reddit.com/u/rentmein/"><img src="" alt="Reddit: RentMe In"></a></li>
+                    <li><a href="https://vimeo.com/rentmein/"><img src="" alt="Vimeo: RentMe In"></a></li>
+                    <li><a href="mailto:info@rentmein.com"><img src="" alt="E-mail to RentMe In"></a></li>
+                </ul></li>
+                <li>Descarga nuestra app <a href="https://play.google.com/store/apps/details?id=com.rentmein.mediaclient"><img src="" alt="Google Play: RentMe In App"></a> <a href="https://apps.apple.com/es/app/rentme-in/id000000000"><img src="" alt="Apple App Store: RentMe In App"></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

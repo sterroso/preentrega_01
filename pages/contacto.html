@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- El atributo href de este elemento permite que todos los 
+        enlaces de este html sean relativos a esta ruta.
+        Se actualizará cuando se publique en el servidor de producción. -->
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="../css/normal.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo"><img src="img/rentmein_logo_128x128.png" alt="RentMe In logo"></div>
+        <div>
+            <h1 class="main-title">RentMe In</h1>
+            <div class="user-area">
+                <p><a href="pages/registro.html" class="register">registrarme</a></p>
+                <p><a href="pages/login.html" class="login">entrar</a></p>
+            </div>
+            <div class="search-top">
+                <form action="pages/buscar.html" method="post" id="top_search_form">
+                    <input type="search" name="query">
+                    <input type="submit" value="buscar">
+                </form>
+            </div>
+            <div class="main-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="pages/buscar.html">Busco una propiedad</a></li>
+                        <li><a href="pages/arrendadores.html">Quiero rentar mi propiedad</a></li>
+                        <li><a href="pages/contacto.html">Contacto</a></li>
+                        <li><a href="pages/preguntas.html">P+F</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <form class="contacto" action="pages/contacto.html" method="post">
+            <fieldset title="Datos de contacto">
+                <legend>Datos de contacto</legend>
+                <div class="input-row required">
+                    <label for="nombres">Nombres</label>
+                    <input type="text" name="nombres" id="nombres">
+                </div>
+
+                <div class="input-row optional">
+                    <label for="apellidos">Apellido(s)</label>
+                    <input type="text" name="apellidos" id="apellidos">
+                </div>
+
+                <div class="input-row optional">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email">
+                </div>
+
+                <div class="input-row optional">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" name="telefono" id="telefono">
+                </div>
+            </fieldset>
+
+            <div class="input-row checkbox-option">
+                <input type="checkbox" name="soy_propietario" id="soy_propietario">
+                <label for="soy_propietario">Soy propietario de un departamento o casa disponible para renta.</label>
+            </div>
+
+            <fieldset title="Mensaje">
+                <Legend>Mensaje</Legend>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            </fieldset>
+
+            <div class="captcha-row">
+                <p>CAPTCHA</p>
+                <label for="captcha_value">Captcha</label>
+                <input type="text" name="capthca_value" id="captcha_value">
+            </div>
+
+            <div class="submit-row">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpiar">
+            </div>
+        </form>
+    </main>
+
+    <!-- Pié de página -->
+    <footer>
+        <div class="logo"><img src="img/rentmein_logo_128x128.png" alt="RentMe In logo"></div>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="pages/privacidad.html">Política de privacidad</a></li>
+                <li><a href="pages/bolsa_de_trabajo.html">Bolsa de trabajo</a></li>
+                <li><a href="pages/nosotros.html">¿Quiénes somos?</a></li>
+                <li><a href="pages/arrendadores.html">¿Quieres publicar tu propiedad?</a></li>
+                <li><a href="pages/proveedores.html">¿Quiéres ser nuestro proveedor?</a></li>
+            </ul>
+        </div>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="pages/contacto.html">Contáctanos</a></li>
+                <li><ul class="social-media-links">
+                    <li><a href="https://instagram.com/rentmein/"><img src="" alt="Instagram: RentMe In"></a></li>
+                    <li><a href="https://wa.me/529671410559"><img src="" alt="Mensaje por WhatsApp"></a></li>
+                    <li><a href="https://pinterest.com/rentmein/"><img src="" alt="Pinterest: RentMe In"></a></li>
+                    <li><a href="https://reddit.com/u/rentmein/"><img src="" alt="Reddit: RentMe In"></a></li>
+                    <li><a href="https://vimeo.com/rentmein/"><img src="" alt="Vimeo: RentMe In"></a></li>
+                    <li><a href="mailto:info@rentmein.com"><img src="" alt="E-mail to RentMe In"></a></li>
+                </ul></li>
+                <li>Descarga nuestra app <a href="https://play.google.com/store/apps/details?id=com.rentmein.mediaclient"><img src="" alt="Google Play: RentMe In App"></a> <a href="https://apps.apple.com/es/app/rentme-in/id000000000"><img src="" alt="Apple App Store: RentMe In App"></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

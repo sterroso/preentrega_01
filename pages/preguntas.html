@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- El atributo href de este elemento permite que todos los 
@@ -9,34 +9,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas más frecuentes</title>
-    <link rel="stylesheet" href="../css/normal.css">
+    <title>RentMe In :: Preguntas más Frecuentes</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- Encabezado -->
+    <!-- Bloque de header (encabezado) -->
     <header>
-        <div class="logo"><img src="img/rentmein_logo_128x128.png" alt="RentMe In logo"></div>
-        <div>
-            <h1 class="main-title">RentMe In</h1>
-            <div class="user-area">
-                <p><a href="pages/registro.html" class="register">registrarme</a></p>
-                <p><a href="pages/login.html" class="login">entrar</a></p>
+        <!-- Sub-bloque izquierdo del encabezado -->
+        <div class="header__left">
+            <a href="index.html"><picture class="header__logo-container">
+                <img src="img/logo_128x128_transparent.png" alt="RentMe In Logo">
+            </picture></a>
+        </div>
+
+        <!-- Sub-bloque derecho del encabezado -->
+        <div class="header__right">
+            <!-- Sub-bloque superior derecho del encabezado (título, registro, login y búsqueda) -->
+            <div class="header__upper-right">
+                <!-- Área de marca (nombre de la marca, slogan, lema, etc.) -->
+                <div class="header__brand-area">
+                    <h1 class="header__title"><a href="index.html">RentMe In</a></h1>
+                </div>
+
+                <!-- Área de acceso (registro + entrar / usuario + salir) -->
+                <div class="header__login-area">
+                    <!-- Menú de acceso -->
+                    <ul class="head__login-menu">
+                        <li class="header__signup"><a href="#">registrarme</a></li>
+                        <li class="header__login"><a href="#">entrar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Área de búsqueda (formulario de búsqueda) -->
+                <div class="header__search-area">
+                    <form action="#" method="post" id="search-form" name="search-form">
+                        <fieldset>
+                            <input type="search" name="search-text" id="search-text" placeholder="Ciudad, domicilio">
+                            <input type="submit" value="Buscar">
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div class="search-top">
-                <form action="pages/buscar.html" method="post" id="top_search_form">
-                    <input type="search" name="query">
-                    <input type="submit" value="buscar">
-                </form>
-            </div>
-            <div class="main-menu">
+
+            <!-- Sub-bloque inferior derecho del encabezado (menú principal) -->
+            <div class="header__lower-rigt">
                 <nav>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="pages/buscar.html">Busco una propiedad</a></li>
-                        <li><a href="pages/arrendadores.html">Quiero rentar mi propiedad</a></li>
-                        <li><a href="pages/contacto.html">Contacto</a></li>
-                        <li><a href="pages/preguntas.html">P+F</a></li>
+                    <ul class="header__main-menu">
+                        <li class="header__main-menu-item"><a href="index.html">Inicio</a></li>
+                        <li class="header__main-menu-item"><a href="pages/buscar.html">Encontrar Casa</a></li>
+                        <li class="header__main-menu-item"><a href="pages/arrendadores.html">Arrendadores</a></li>
+                        <li class="header__main-menu-item"><a href="pages/contacto.html">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -188,59 +211,99 @@
         </section>
     </main>
 
-    <!-- Pié de página -->
+    <!-- Bloque footer (pié de página) -->
     <footer>
-        <div class="fotter-multicolumn">
-            <div class="logo"><img src="img/rentmein_logo_128x128.png" alt="RentMe In logo"></div>
-            <div class="footer-menu">
-                <ul>
-                    <li><a href="pages/privacidad.html">Política de privacidad</a></li>
-                    <li><a href="pages/bolsa_de_trabajo.html">Bolsa de trabajo</a></li>
-                    <li><a href="pages/nosotros.html">¿Quiénes somos?</a></li>
-                    <li><a href="pages/arrendadores.html">¿Quieres publicar tu propiedad?</a></li>
-                    <li><a href="pages/proveedores.html">¿Quiéres ser nuestro proveedor?</a></li>
+        <!-- Lista para distribuir el contenido del footer en columnas (disposición horizontal) -->
+        <ul class="footer__horizontal-list">
+            <!-- Columna que contiene el logotipo. -->
+            <li class="footer__horizontal-list-item">
+                <a href="index.html"><picture class="footer__logo-container">
+                    <img src="img/logo_128x128_transparent.png" alt="RentMe In logo">
+                </picture></a>
+            </li>
+
+            <!-- Columna que contiene un pequeño menú. -->
+            <li class="footer__horizontal-list-item">
+                <ul class="footer__bottom-menu">
+                    <li class="footer__bottom-menu-item"><a href="#">Política de privacidad</a></li>
+                    <li class="footer__bottom-menu-item"><a href="#">Bolsa de trabajo</a></li>
+                    <li class="footer__bottom-menu-item"><a href="#">¿Quiénes somos?</a></li>
+                    <li class="footer__bottom-menu-item"><a href="#">¿Quieres publicar tu propiedad?</a></li>
+                    <li class="footer__bottom-menu-item"><a href="#">¿Quiéres ser nuestro proveedor?</a></li>
                 </ul>
-            </div>
-            <div class="footer-menu">
-                <ul>
-                    <li><a href="pages/contacto.html">Contáctanos</a></li>
-                    <li>
-                        <ul class="social-media-links">
-                            <li><a href="https://instagram.com/rentmein/" target="_blank"><img
-                                        src="img/005-instagram.png" alt="Instagram: RentMe In"></a></li>
-                            <li><a href="https://wa.me/529671410559" target="_blank"><img src="img/002-whatsapp.png"
-                                        alt="Mensaje por WhatsApp"></a></li>
-                            <li><a href="https://pinterest.com/rentmein/" target="_blank"><img
-                                        src="img/001-pinterest.png" alt="Pinterest: RentMe In"></a></li>
-                            <li><a href="https://reddit.com/u/rentmein/" target="_blank"><img src="img/003-reddit.png"
-                                        alt="Reddit: RentMe In"></a></li>
-                            <li><a href="https://vimeo.com/rentmein/" target="_blank"><img src="img/004-vimeo.png"
-                                        alt="Vimeo: RentMe In"></a></li>
-                            <li><a href="mailto:info@rentmein.com"><img src="img/006-email.png"
-                                        alt="E-mail to RentMe In"></a></li>
+            </li>
+
+            <!-- Columna que contiene ligas a redes sociales y descargar las apps móviles. -->
+            <li class="footer__horizontal-list-item">
+                <ul class="footer__bottom-menu">
+                    <li class="footer_bottom-menu-item">Encuéntranos en redes sociales:</li>
+                    <li class="footer_bottom-menu-item">
+                        <ul class="footer__social-media-list">
+                            <!-- Instagram -->
+                            <li class="footer__social-media-list-item">
+                                <a href="#" target="_blank"><img src="img/005-instagram.png"
+                                        alt="Instagram: RentMe In"></a>
+                            </li>
+
+                            <!-- WhatsApp -->
+                            <li class="footer__social-media-list-item">
+                                <a href="#" target="_blank"><img src="img/002-whatsapp.png"
+                                        alt="Mensaje por WhatsApp"></a>
+                            </li>
+
+                            <!-- Pinterest -->
+                            <li class="footer__social-media-list-item">
+                                <a href="#" target="_blank"><img src="img/001-pinterest.png"
+                                        alt="Pinterest: RentMe In"></a>
+                            </li>
+
+                            <!-- Reddit -->
+                            <li class="footer__social-media-list-item">
+                                <a href="#" target="_blank"><img src="img/003-reddit.png" alt="Reddit: RentMe In"></a>
+                            </li>
+
+                            <!-- Vimeo -->
+                            <li class="footer__social-media-list-item">
+                                <a href="#" target="_blank"><img src="img/004-vimeo.png" alt="Vimeo: RentMe In"></a>
+                            </li>
+
+                            <!-- E-mail -->
+                            <li class="footer__social-media-list-item">
+                                <a href="mailto:sergio.terroso@gmail.com"><img src="img/006-email.png"
+                                        alt="E-mail to RentMe In"></a>
+                            </li>
                         </ul>
                     </li>
-                    <li>Descarga nuestra app <a
-                            href="https://play.google.com/store/apps/details?id=com.rentmein.mediaclient"
-                            target="_blank"><img src="img/007-playstore.png" alt="Google Play: RentMe In App"></a> <a
-                            href="https://apps.apple.com/es/app/rentme-in/id000000000" target="_blank"><img
-                                src="img/008-app-store.png" alt="Apple App Store: RentMe In App"></a></li>
+
+                    <li class="footer_bottom-menu-item">Descarga nuestra app <a href="#" target="_blank"><img
+                                src="img/007-playstore.png" alt="Google Play: RentMe In App"></a> <a href="#"
+                            target="_blank"><img src="img/008-app-store.png" alt="Apple App Store: RentMe In App"></a>
+                    </li>
                 </ul>
-            </div>
-            <div class="newsletter-subscription-column">
-                <form action="subscripcion.html" class="newsletter-subscription-form">
-                    <fieldset>
-                        <label for="email">Inscríbete a nuestro newsletter</label>
-                        <input type="email" name="email" id="email">
-                        <input type="submit" value="Inscríbeme">
-                    </fieldset>
+            </li>
+
+            <!-- Columna que contiene el formulario de subscripción al newsletter -->
+            <li class="footer__horizontal-list-item">
+                <form id="footer__subscription-form" action="#" class="newsletter-subscription-form" method="post">
+                    <ul class="footer__subscription-form-column">
+                        <li class="footer__subscription-form-column-item">
+                            <label for="footer__subscription-form-email">Inscríbete a nuestro newsletter</label>
+                        </li>
+                        <li class="footer__subscription-form-column-item">
+                            <input type="email" name="email" id="footer__subscription-form-email">
+                        </li>
+                        <li class="footer__subscription-form-column-item">
+                            <input type="submit" value="Inscríbeme">
+                        </li>
+                    </ul class="footer__subscription-form-column">
                 </form>
-            </div>
-        </div>
-        <div class="footerspan">
-            <p class="copyright">Todos los derechos reservados. RentMe In 2022. Diseño por <a
-                    href="http://coderhouse.terroso.com.mx/37255/reto_1" target="_blank"
-                    rel="noopener noreferrer">@sterroso</a></p>
+            </li>
+        </ul>
+
+        <!-- Área del Copyright y Créditos -->
+        <div class="footer__span">
+            <p class="footer__copyright">Todos los derechos reservados. RentMe In 2022.</p>
+            <p class="footer__design-by">Diseño por <a href="mailto:sergio.terroso@gmail.com">@sterroso</a></p>
         </div>
     </footer>
 </body>

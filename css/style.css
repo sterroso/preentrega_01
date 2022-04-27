@@ -1,0 +1,406 @@
+/* Importar fuentes de Google Fonts en un sólo lugar para asegurar uniformidad. */
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    /* Reset */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables globales para mantener uniformidad de colores. */
+:root {
+    --clear-color: #E0FBFC;
+    --text-color: #293241;
+    --aux-color-1: #EE6C4D;
+    --aux-color-2: #98C1D9;
+    --accent-color-1: #3D5A80;
+    --accent-color-2: #5C6496;
+    --accent-color-3: #2FA16B;
+    --background-header: #96c3ec;
+    --background-main: #ffffff;
+    --background-footer: rgb(169, 169, 169);
+}
+
+/* Reglas generales para todo el cuerpo del html. */
+body {
+    font-family: Jost, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: var(--text-color);
+}
+
+/*******************************************************************************
+
+    Elementos dentro del Bloque <header>
+
+*******************************************************************************/
+
+/* El bloque header en general. */
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    background-color: var(--background-header);
+}
+
+/* Área izquierda del encabezado (para el logotipo) */
+.header__left {
+    float: inline-start;
+    width: 128px;
+}
+
+/* Área derecha del encabezado (título e interacción del usuario: registro, login, búsqueda y menú principal) */
+.header__rigth {
+    position: absolute;
+    top: 0;
+}
+
+/* Área superior derecha del encabezado (título, registro, login y búsqueda) */
+.header__upper-right {
+    background-color: transparent;
+}
+
+/* Área de marca: (nombre de marca, lema, slogan, etc) */
+.header__brand-area {
+    display: inline-block;    /* inline-start permite al elemento hacerlo accesible a idiomas en que la escritura es de derecha a izquierda (RTL) */
+    width: 33%;
+    min-width: 255px;
+}
+
+/* Título principal (nombre de la marca) del sitio. */
+.header__title, .header__title a:link, .header__title a:active, .header__title a:visited {
+    color: var(--aux-color-1);
+}
+
+/* Quitar el subrayado del link del título principal. */
+.header__title a {
+    text-decoration: none;
+}
+
+/* Área de acceso (signup, login / nombre del usuario, logout) */
+.header__login-area {
+    display: inline-block;
+    width: 33%;
+    min-width: 255px;
+    text-align: end;
+}
+
+/* Menú de acceso (signup / login) */
+.header__login-menu {
+    list-style-type: none;
+}
+
+/* Ítem del menú de acceso */
+.header__signup, .header__login {
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Aspecto, en general, de las ligas del menú de acceso */
+.header__signup a, .header__login a {
+    text-decoration: none;
+    padding: 0 1rem;
+}
+
+/* Las ligas de menú acceso, cuando están activas, se ven igual al hover. */
+.header__signup a:active, .header__login a:active {
+    color: white;
+    background-color: var(--aux-color-1);
+}
+
+/* Aspecto de la liga de entrada antes de ser cliqueado por primera vez (verde). */
+.header__signup a:link {
+    color: var(--accent-color-2);
+}
+
+/* LA liga de entrada siemrpe debe verse igual aunque ya se haya visitado antes. */
+.header__signup a:visited {
+    color: var(--accent-color-2);
+}
+
+/* Aspecto de la liga de entrada antes de ser cliqueado por primera vez (violeta). */
+.header__login a:link {
+    color: var(--accent-color-3);
+}
+
+/* Aspecto de las ligas del menú acceso cuando el puntero pasa sobre ellas. */
+.header__signup a:hover, .header__login a:hover {
+    color: white;
+    background-color: var(--aux-color-1);
+}
+
+/* Área de búsqueda */
+.header__search-area {
+    float: right;
+    padding: 1rem 1rem 0;
+}
+
+/* Fieldset del área de búsqueda */
+#search-form fieldset {
+    border: none;
+}
+
+/* Aspecto del campo de búsqueda. */
+#search-form input[type='search'] {
+    border: solid medium var(--accent-color-1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.5rem 0.25rem;
+}
+
+/* Aspecto del botón enviar. */
+#search-form input[type='submit'] {
+    border: none;
+    background-color: transparent;
+    background-image: url(../img/001-magnifying-glass.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    content: '';
+}
+
+/* Área inferior derecha del encabezado (contenedor del menú principal). */
+.header__lower-right {
+    position: relative;
+    bottom: 0;
+}
+
+/* Elemento <ul> que contiente las opciones del menú principal. */
+.header__main-menu {
+    position: absolute;
+    bottom: 7px;
+    right: 1rem;
+    list-style-type: none;
+    text-align: end;
+}
+
+/* Elemento <li> para cada uno de las opciones del menú principal. */
+.header__main-menu-item {
+    display: inline-block;
+    font-weight: bold;
+    margin: 0 0.5rem 0.5rem;
+}
+
+/* Aspecto general de las ligas del menú principal. */
+.header__main-menu-item a {
+    text-decoration: none;
+    padding: 0.5em 1em 0.5rem;
+    border-bottom: solid thick var(--accent-color-1);
+}
+
+/* Aspecto de las ligas del menú principal antes de ser visitadas. */
+.header__main-menu-item a:link {
+    color: var(--accent-color-1);
+}
+
+/* Aspecto de las ligas del menú principal después de ser visitadas. */
+.header__main-menu-item a:visited {
+    color: var(--accent-color-1)
+}
+
+/* Aspecto de las ligas del menú principal al pasar el puntero o estar activas. */
+.header__main-menu-item a:hover, .header__main-menu-item a:active {
+    background-color: var(--aux-color-1);
+    color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+
+/*******************************************************************************
+
+    Elementos del bloque <main> 
+
+*******************************************************************************/
+
+/* El bloque main en general. */
+main {
+    background-color: var(--background-main);
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del mapa (ser requiere acceso al API de Google Maps) */
+.main__map-container {
+    width: 100%;
+    height: 600px;
+    background-image: url('../img/map_background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Área de filtros de búsqueda de propiedades. */
+.main__filters-container {
+    background-color: var(--aux-color-1);
+    margin: 0;
+    padding: 0;
+}
+
+/* Quitar bordes al fieldset. */
+#main__search-filters-form fieldset {
+    border: none;
+}
+
+/* Etiquetas en negritas. */
+#main__search-filters-form label {
+    font-weight: bold;
+    color: var(--accent-color-1);
+}
+
+/* Botón "Aplicar Filtros" */
+#main__search-filters-form input[type='submit'] {
+    padding: 0.25rem 0.5rem;
+    border: solid medium var(--accent-color-1);
+    border-radius: 0.5rem;
+    font-weight: bold;
+    background-color: var(--accent-color-3);
+    color: var(--clear-color);
+    text-transform: capitalize; /* Poner mayúsculas en cada palabra. */
+}
+
+/* Sliders */
+#main__search-filters-form input[type='range'] {
+    accent-color: var(--accent-color-1);
+    color: var(--aux-color-2);
+}
+
+/* Lista de selección */
+#main__search-filters-form select {
+    border: solid medium var(--accent-color-1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+/* Lista para dividir los filtros en columnas (disposición horizontal) */
+.main__filters-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Columna de campos */
+.main__filters-list-item {
+    display: inline-block;
+    margin: 0 2rem;
+    vertical-align: middle;
+}
+
+/* Lista para dividir cada columna de campos en filas (disposición vertical) */
+.main__filter-column {
+    list-style-type: none;
+}
+
+
+/*******************************************************************************
+
+    Elementos del bloque <footer> 
+
+*******************************************************************************/
+
+/* El bloque footer en general. */
+footer {
+    background-color: var(--background-footer);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    border: dashed thin transparent;
+}
+
+/* Lista para dividir el footer en columnas (disposición horizontal) */
+.footer__horizontal-list {
+    list-style-type: none;
+    width: 60%;
+    margin: 1rem auto 2rem;
+    padding: 0;
+}
+
+/* Columna individual (li) */
+.footer__horizontal-list-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+}
+
+/* Lista para dividir una columna en filas (disposición vertical) */
+.footer__bottom-menu {
+    list-style-type: none;
+}
+
+/* Cada elemento dentro del menú en el pié de página. */
+.footer__bottom-menu-item {
+    margin: 0;
+    padding: 0.15rem 0;
+}
+
+/* Liga dentro de cada elemento del menú en el pié de página */
+.footer__bottom-menu-item a {
+    text-decoration: none;
+}
+
+/* Liga dentro de cada elemento del menú en el pié de página cuando no se ha visitado, 
+   cuando está activo y después de visitado son iguales. */
+.footer__bottom-menu-item a:link, .footer__bottom-menu-item a:visited, .footer__bottom-menu-item a:active {
+    color: var(--accent-color-1);
+}
+
+/* Liga dentro de cada elemento del menú en el pié de página cuando el 
+   puntero del ratón pasa encima. */
+.footer__bottom-menu-item a:hover {
+    color: var(--clear-color);
+    background-color: var(--aux-color-1);
+}
+
+/* Lista para colocar los íconos de redes sociales en horizontal */
+.footer__social-media-list {
+    list-style-type: none;
+}
+
+/* Cada ícono de redes sociales */
+.footer__social-media-list-item {
+    display: inline-block;
+    margin: 0 0.25rem;
+}
+
+/* Lista para colocar los campos del formulario de subscripción en filas (disposición vertical) */
+.footer__subscription-form-column {
+    list-style-type: none;
+    text-align: center;
+}
+
+/* Campo email del formulario de subscripción. */
+#footer__subscription-form-email {
+    width: 100%;
+    border: solid medium var(--accent-color-1);
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.5rem 0.25rem;
+}
+
+/* Botón "Suscríbeme" del formulario de subscripción. */
+#footer__subscription-form input[type='submit'] {
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    background-color: var(--accent-color-1);
+    color: var(--clear-color);
+    text-transform: capitalize; /* Poner mayúsculas en cada palabra. */
+}
+
+/* Área del Copyright y Créditos. */
+.footer__span {
+    text-align: center;
+    color: var(--clear-color);
+}

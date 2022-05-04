@@ -1,27 +1,29 @@
 # Sergio Terroso Cabrera
+
 ## Desarrollo Web
+
 ### Comisión 37255
+
 #### Reto 1
 
-La primera parte tienen que hacer el wireframe de una vista para mobile y una vista para desktop teniendo en cuenta el tema elegido. Ya tienen que ir definiendo de qué va ser su proyecto, pueden usar algún emprendimiento propio, alguno de un conocido, pueden inventar un tema, usar una banda que les guste, refugio de animales. Lo importante es que tengan info para completar las 5 secciones, si tienen alguna duda con esto me escriben y lo vemos.
+Tienen que entregar los wireframe de las 5 secciones, en la versión mobile y desktop, si ya entregaron los 5 de cada resolución para la primera entrega, pueden entregar los mismos, y si solo habían entregado el index completen las secciones que faltan.
 
-Y la segunda parte, es ya en el vsc crear los archivos html de las secciones ( en total 5 .html) y utilizar las etiquetas semánticas vistas hasta ahora en clase. Acá abajo les paso una imagen para que entiendan mejor las etiquetas semánticas. Que simplemente son contenedores nomenclados, que ayudan a organizar el código, para que se ubiquen más fácil en él, y también ayuda en el SEO que es algo que vamos a ver más adelante.
+También tienen que entregar la carpeta raíz, organizada, con las 5 secciones, estilo e imágenes.
 
-Por Ejemplo el (que no es lo mismo que el head), como dice el nombre es la cabecera, donde generalmente está la navegación y el logo.
+Los 5 html, tienen que tener la estructura básica, etiquetas semánticas (Muy importante) para organizar el contenido, etiquetas vistas en clase y el menú completo, así de esta manera se puede navegar por el sitio.
 
-El main, donde se encuentra el contenido principal, que dentro se organiza con section y article.
+En el css tienen que trabajar los estilos que estuvimos viendo para modificar texto, colores, márgenes, paddings, bordes o lo que necesiten para su proyecto.
 
-y por último el footer, donde suele estar el copyright, redes , preguntas frecuentes.
+Para dar estilos usen clases, los id dejenlos para javascript.
 
-Las 5 secciones obviamente tienen que tener la estructura básica, en vsc la crean con !+tab, o html:5+tab (no se olviden de guardar el archivo como .html, por que sino no toma el emmet) empezar a organizar el código con etiquetas semánticas y agregar lo visto en clase, es decir
+Es importante que ya definan una paleta de colores para el sitio, y la respeten en todas las secciones, también que definan una tipografía, les recomiendo que elijan una de google fonts.
 
-* Una lista no ordenada con el menú principal del sitio web con los nombres de cada una de las secciones y replícalo en las mismas.
-* Un formulario en la página de contacto.
-* Un footer y replícalo en todos tus html.
-* Etiquetas multimedia como img e iframes.
+Si bien la entrega pide que no se incluya flexbox, pueden utilizarlo.
 
-Es importante que el menú, se repita en todas las secciones, así de esa forma el sitio es navegable, por lo que los enlaces tienen que estar correctos.
+NO usen float ni positions para acomodar elementos , las positions dejenlas para casos particulares, como dejar el menú fijo en la parte superior.
 
-También les dejo una imagen de cómo tienen que tener organizada la carpeta Raíz, es importante que mantengan la estructura y la prolijidad de la carpeta.
+Presten atención a la prolijidad tanto del código como de la carpeta raíz.
 
-El index siempre tiene que estar en el primer nivel, las demás secciones pueden estar o no en una subcarpeta.
+Es importante que el código esté bien indentado, es decir que usen la tabulación de forma correcta. Y la carpeta esté organizada, tengan subcarpetas para los archivos multimedia, hoja de estilo, y si quieren pueden tener unas para las pages. Recuerden que el index va, si o si en la carpeta raíz, no puede ir dentro de una sub carpeta.
+
+También recuerden el tema de las rutas NO pueden comenzar con “/”

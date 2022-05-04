@@ -2,15 +2,11 @@
 <html lang="es">
 
 <head>
-    <!-- El atributo href de este elemento permite que todos los 
-        enlaces de este html sean relativos a esta ruta.
-        Se actualizará cuando se publique en el servidor de producción. -->
-    <base href="/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentMe In :: Contacto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css   ">
 </head>
 
 <body>
@@ -18,9 +14,11 @@
     <header>
         <!-- Sub-bloque izquierdo del encabezado -->
         <div class="header__left">
-            <a href="index.html"><picture class="header__logo-container">
-                <img src="img/logo_128x128_transparent.png" alt="RentMe In Logo">
-            </picture></a>
+            <a href="../index.html">
+                <picture class="header__logo-container">
+                    <img src="../img/logo_128x128_transparent.png" alt="RentMe In Logo">
+                </picture>
+            </a>
         </div>
 
         <!-- Sub-bloque derecho del encabezado -->
@@ -29,16 +27,14 @@
             <div class="header__upper-right">
                 <!-- Área de marca (nombre de la marca, slogan, lema, etc.) -->
                 <div class="header__brand-area">
-                    <h1 class="header__title"><a href="index.html">RentMe In</a></h1>
+                    <h1 class="header__title"><a href="../index.html">RentMe In</a></h1>
                 </div>
 
                 <!-- Área de acceso (registro + entrar / usuario + salir) -->
                 <div class="header__login-area">
                     <!-- Menú de acceso -->
-                    <ul class="head__login-menu">
-                        <li class="header__signup"><a href="#">registrarme</a></li>
-                        <li class="header__login"><a href="#">entrar</a></li>
-                    </ul>
+                    <p class="header__signup"><a href="#">registrarme</a></p>
+                    <p class="header__login"><a href="login.html">entrar</a></p>
                 </div>
 
                 <!-- Área de búsqueda (formulario de búsqueda) -->
@@ -53,13 +49,13 @@
             </div>
 
             <!-- Sub-bloque inferior derecho del encabezado (menú principal) -->
-            <div class="header__lower-rigt">
+            <div class="header__lower-right">
                 <nav>
                     <ul class="header__main-menu">
-                        <li class="header__main-menu-item"><a href="index.html">Inicio</a></li>
-                        <li class="header__main-menu-item"><a href="pages/buscar.html">Encontrar Casa</a></li>
-                        <li class="header__main-menu-item"><a href="pages/arrendadores.html">Arrendadores</a></li>
-                        <li class="header__main-menu-item"><a href="pages/preguntas.html">P+F</a></li>
+                        <li class="header__main-menu-item"><a href="../index.html">Inicio</a></li>
+                        <li class="header__main-menu-item"><a href="inquilinos.html">Inquilinos</a></li>
+                        <li class="header__main-menu-item"><a href="arrendadores.html">Arrendadores</a></li>
+                        <li class="header__main-menu-item"><a href="inmobiliarias.html">Inmobiliarias</a></li>
                     </ul>
                 </nav>
             </div>
@@ -68,145 +64,146 @@
 
     <!-- Contenido principal -->
     <main>
-        <form class="contacto" action="pages/contacto.html" method="post">
-            <fieldset title="Datos de contacto">
-                <legend>Datos de contacto</legend>
-                <div class="input-row required">
-                    <label for="nombres">Nombres</label>
-                    <input type="text" name="nombres" id="nombres">
+        <div class="main__contact-form-container">
+            <hgroup class="main__contact-form-header">
+                <h2 class="main__contact-form-title">¡Envíanos un mensaje!</h2>
+                <h3 class="main__contact-form-subtitle">¿Tienes una duda o sugerencia? Por favor escríbenos.</h3>
+            </hgroup>
+            <form id="contact-form" action="pages/contacto.html" method="post">
+                <fieldset title="Datos de contacto">
+                    <legend>Datos de contacto</legend>
+                    <div class="main__contact-form-input-group">
+                        <label for="nombres">Nombre completo</label>
+                        <input type="text" name="nombres" id="nombres">
+                    </div>
+    
+                    <div class="main__contact-form-input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+    
+                    <div class="main__contact-form-input-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" name="telefono" id="telefono">
+                    </div>
+                </fieldset>
+    
+                <div class="main__contact-form-checkbox-group">
+                    <input type="checkbox" name="soy_propietario" id="soy_propietario">
+                    <label for="soy_propietario">Soy propietario de un departamento o casa disponible para renta.</label>
                 </div>
-
-                <div class="input-row optional">
-                    <label for="apellidos">Apellido(s)</label>
-                    <input type="text" name="apellidos" id="apellidos">
+    
+                <fieldset class="main__contact-form-textarea-container">
+                    <Legend>Mensaje</Legend>
+                    <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+                </fieldset>
+    
+                <div class="main__contact-form-captcha-group">
+                    <p>CAPTCHA</p>
+                    <label for="captcha_value">Captcha</label>
+                    <input type="text" name="captcha_value" id="captcha_value">
                 </div>
-
-                <div class="input-row optional">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email">
+    
+                <div class="main__contact-form-submit-group">
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Limpiar">
                 </div>
-
-                <div class="input-row optional">
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" name="telefono" id="telefono">
-                </div>
-            </fieldset>
-
-            <div class="input-row checkbox-option">
-                <input type="checkbox" name="soy_propietario" id="soy_propietario">
-                <label for="soy_propietario">Soy propietario de un departamento o casa disponible para renta.</label>
-            </div>
-
-            <fieldset title="Mensaje">
-                <Legend>Mensaje</Legend>
-                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
-            </fieldset>
-
-            <div class="captcha-row">
-                <p>CAPTCHA</p>
-                <label for="captcha_value">Captcha</label>
-                <input type="text" name="capthca_value" id="captcha_value">
-            </div>
-
-            <div class="submit-row">
-                <input type="submit" value="Enviar">
-                <input type="reset" value="Limpiar">
-            </div>
-        </form>
+            </form>
+        </div>
     </main>
 
     <!-- Bloque footer (pié de página) -->
     <footer>
-        <!-- Lista para distribuir el contenido del footer en columnas (disposición horizontal) -->
-        <ul class="footer__horizontal-list">
-            <!-- Columna que contiene el logotipo. -->
-            <li class="footer__horizontal-list-item">
-                <a href="index.html"><picture class="footer__logo-container">
-                    <img src="img/logo_128x128_transparent.png" alt="RentMe In logo">
-                </picture></a>
-            </li>
+        <!-- Fila superior del pié de página. -->
+        <div class="footer__top-row">
+            <!-- Columna para el logotipo. -->
+            <div class="footer__column">
+                <a href="../index.html">
+                    <picture class="footer__logo-container">
+                        <img src="../img/logo_128x128_transparent.png" alt="RentMe In Logo">
+                    </picture>
+                </a>
+            </div>
 
-            <!-- Columna que contiene un pequeño menú. -->
-            <li class="footer__horizontal-list-item">
+            <!-- Columna para el menú del pié de página. -->
+            <div class="footer__column">
                 <ul class="footer__bottom-menu">
                     <li class="footer__bottom-menu-item"><a href="#">Política de privacidad</a></li>
-                    <li class="footer__bottom-menu-item"><a href="#">Bolsa de trabajo</a></li>
-                    <li class="footer__bottom-menu-item"><a href="#">¿Quiénes somos?</a></li>
                     <li class="footer__bottom-menu-item"><a href="#">¿Quieres publicar tu propiedad?</a></li>
+                    <li class="footer__bottom-menu-item"><a href="#">¿Eres una agencia o profesional inmobiliario?</a></li>
                     <li class="footer__bottom-menu-item"><a href="#">¿Quiéres ser nuestro proveedor?</a></li>
+                    <li class="footer__bottom-menu-item"><a href="#">Bolsa de trabajo</a></li>
                 </ul>
-            </li>
+            </div>
 
-            <!-- Columna que contiene ligas a redes sociales y descargar las apps móviles. -->
-            <li class="footer__horizontal-list-item">
-                <ul class="footer__bottom-menu">
-                    <li class="footer_bottom-menu-item">Encuéntranos en redes sociales:</li>
-                    <li class="footer_bottom-menu-item">
-                        <ul class="footer__social-media-list">
-                            <!-- Instagram -->
-                            <li class="footer__social-media-list-item">
-                                <a href="#" target="_blank"><img src="img/005-instagram.png"
-                                        alt="Instagram: RentMe In"></a>
-                            </li>
-
-                            <!-- WhatsApp -->
-                            <li class="footer__social-media-list-item">
-                                <a href="#" target="_blank"><img src="img/002-whatsapp.png"
-                                        alt="Mensaje por WhatsApp"></a>
-                            </li>
-
-                            <!-- Pinterest -->
-                            <li class="footer__social-media-list-item">
-                                <a href="#" target="_blank"><img src="img/001-pinterest.png"
-                                        alt="Pinterest: RentMe In"></a>
-                            </li>
-
-                            <!-- Reddit -->
-                            <li class="footer__social-media-list-item">
-                                <a href="#" target="_blank"><img src="img/003-reddit.png" alt="Reddit: RentMe In"></a>
-                            </li>
-
-                            <!-- Vimeo -->
-                            <li class="footer__social-media-list-item">
-                                <a href="#" target="_blank"><img src="img/004-vimeo.png" alt="Vimeo: RentMe In"></a>
-                            </li>
-
-                            <!-- E-mail -->
-                            <li class="footer__social-media-list-item">
-                                <a href="mailto:sergio.terroso@gmail.com"><img src="img/006-email.png"
-                                        alt="E-mail to RentMe In"></a>
-                            </li>
-                        </ul>
+            <!-- Columna para redes sociales, correo electrónico y apps móviles. -->
+            <div class="footer__column">
+                <h2 class="footer__footer-section-title">Encuéntranos en nuestras redes sociales</h2>
+                <ul class="footer__social-media-list">
+                    <!-- Instagram -->
+                    <li class="footer__social-media-list-item">
+                        <a href="#" target="_blank"><img src="../img/005-instagram.png"
+                                alt="Instagram: RentMe In"></a>
                     </li>
 
-                    <li class="footer_bottom-menu-item">Descarga nuestra app <a href="#" target="_blank"><img
-                                src="img/007-playstore.png" alt="Google Play: RentMe In App"></a> <a href="#"
-                            target="_blank"><img src="img/008-app-store.png" alt="Apple App Store: RentMe In App"></a>
+                    <!-- Pinterest -->
+                    <li class="footer__social-media-list-item">
+                        <a href="#" target="_blank"><img src="../img/001-pinterest.png"
+                                alt="Pinterest: RentMe In"></a>
+                    </li>
+
+                    <!-- Reddit -->
+                    <li class="footer__social-media-list-item">
+                        <a href="#" target="_blank"><img src="../img/003-reddit.png" alt="Reddit: RentMe In"></a>
+                    </li>
+
+                    <!-- Vimeo -->
+                    <li class="footer__social-media-list-item">
+                        <a href="#" target="_blank"><img src="../img/004-vimeo.png" alt="Vimeo: RentMe In"></a>
+                    </li>
+
+                    <!-- E-mail -->
+                    <li class="footer__social-media-list-item">
+                        <a href="mailto:sergio.terroso@gmail.com"><img src="../img/006-email.png"
+                                alt="E-mail to RentMe In"></a>
+                    </li>
+
+                    <!-- WhatsApp -->
+                    <li class="footer__social-media-list-item">
+                        <a href="#" target="_blank"><img src="../img/002-whatsapp.png"
+                                alt="Mensaje por WhatsApp"></a>
                     </li>
                 </ul>
-            </li>
 
-            <!-- Columna que contiene el formulario de subscripción al newsletter -->
-            <li class="footer__horizontal-list-item">
-                <form id="footer__subscription-form" action="#" class="newsletter-subscription-form" method="post">
-                    <ul class="footer__subscription-form-column">
-                        <li class="footer__subscription-form-column-item">
-                            <label for="footer__subscription-form-email">Inscríbete a nuestro newsletter</label>
-                        </li>
-                        <li class="footer__subscription-form-column-item">
-                            <input type="email" name="email" id="footer__subscription-form-email">
-                        </li>
-                        <li class="footer__subscription-form-column-item">
-                            <input type="submit" value="Inscríbeme">
-                        </li>
-                    </ul class="footer__subscription-form-column">
+                <h2 class="footer__footer-section-title">Descarga nuestras apps móviles</h2>
+                <ul class="footer__mobile-apps-list">
+                    <li class="footer__mobile-apps-list-item">
+                        <a href="#" target="_blank"><img src="../img/007-playstore.png" alt="Google Play: RentMe In App"></a>
+                    </li>
+                    <li class="footer__mobile-apps-list-item">
+                        <a href="#" target="_blank"><img src="../img/008-app-store.png" alt="Apple App Store: RentMe In App"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Columna para formulario de subscripción al newsletter. -->
+            <div class="footer__column">
+                <h3 class="footer__footer-section-title">Inscríbete a nuestro boletín de noticias</h3>
+                <form action="#" id="footer__newsletter-subscription-form" method="post">
+                    <div class="footer__newsletter-form-field-group">
+                        <input type="email" name="email" id="newsletter-subscription-form-input-email"
+                        placeholder="Correo electrónico">
+                    </div>
+                    <div class="footer__newsletter-form-field-group">
+                        <input type="submit" value="Inscríbeme">
+                    </div>
                 </form>
-            </li>
-        </ul>
+            </div>
+        </div>
 
-        <!-- Área del Copyright y Créditos -->
-        <div class="footer__span">
-            <p class="footer__copyright">Todos los derechos reservados. RentMe In 2022.</p>
+        <!-- Fila inferior del pié de página -->
+        <div class="footer__bottom-row">
+            <h3 class="footer__copyright">Todos los derechos reservados. RentMe In 2022.</h3>
             <p class="footer__design-by">Diseño por <a href="mailto:sergio.terroso@gmail.com">@sterroso</a></p>
         </div>
     </footer>

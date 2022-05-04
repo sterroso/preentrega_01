@@ -1,33 +1,41 @@
 /* Importar fuentes de Google Fonts en un sólo lugar para asegurar uniformidad. */
 @import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap');
 
 * {
-    /* Reset */
     box-sizing: border-box;
+
+    /* Reset */
     margin: 0;
     padding: 0;
 }
 
 /* Variables globales para mantener uniformidad de colores. */
 :root {
-    --clear-color: #E0FBFC;
+    --clear-color: #e0fbfc;
     --text-color: #293241;
-    --aux-color-1: #EE6C4D;
-    --aux-color-2: #98C1D9;
-    --accent-color-1: #3D5A80;
-    --accent-color-2: #5C6496;
-    --accent-color-3: #2FA16B;
+    --aux-color-1: #ee6c4d;
+    --aux-color-2: #b980f0;
+    --accent-color-1: #3d5a80;
+    --accent-color-2: #5c6496;
+    --accent-color-3: #2fa16b;
     --background-header: #96c3ec;
     --background-main: #ffffff;
-    --background-footer: rgb(169, 169, 169);
+    --background-footer: #a9a9a9;
+    --contact-form-bg: #96c3ec;
+    --contact-form-fg: #112b3c;
+    --contact-form-accent-1: #f66b0e;
+    --contact-form-accent-2: #205375;
 }
 
 /* Reglas generales para todo el cuerpo del html. */
 body {
-    font-family: Jost, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Jost, Candal, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white;
     color: var(--text-color);
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 /*******************************************************************************
@@ -38,41 +46,42 @@ body {
 
 /* El bloque header en general. */
 header {
-    position: relative;
-    top: 0;
-    left: 0;
+    display: flex;
+    flex-flow: row wrap;
     width: 100%;
-    height: 130px;
+    min-width: 350px;
+    height: calc(128px + 2rem);
     background-color: var(--background-header);
 }
 
 /* Área izquierda del encabezado (para el logotipo) */
 .header__left {
-    float: inline-start;
-    width: 128px;
+    flex: 0 0 calc(128px + 2rem);
+    padding: 1rem;
 }
 
 /* Área derecha del encabezado (título e interacción del usuario: registro, login, búsqueda y menú principal) */
-.header__rigth {
-    position: absolute;
-    top: 0;
+.header__right {
+    flex: 1 1 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
 }
 
 /* Área superior derecha del encabezado (título, registro, login y búsqueda) */
 .header__upper-right {
-    background-color: transparent;
+    /* background-color: transparent; */
+    flex: 0 0 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 /* Área de marca: (nombre de marca, lema, slogan, etc) */
 .header__brand-area {
-    display: inline-block;    /* inline-start permite al elemento hacerlo accesible a idiomas en que la escritura es de derecha a izquierda (RTL) */
-    width: 33%;
-    min-width: 255px;
-}
-
-/* Título principal (nombre de la marca) del sitio. */
-.header__title, .header__title a:link, .header__title a:active, .header__title a:visited {
-    color: var(--aux-color-1);
+    flex: 2 2 50%;
+    min-width: 200px;
 }
 
 /* Quitar el subrayado del link del título principal. */
@@ -80,22 +89,23 @@ header {
     text-decoration: none;
 }
 
-/* Área de acceso (signup, login / nombre del usuario, logout) */
-.header__login-area {
-    display: inline-block;
-    width: 33%;
-    min-width: 255px;
-    text-align: end;
+/* Título principal (nombre de la marca) del sitio. */
+.header__title, .header__title a:link, .header__title a:active, .header__title a:visited {
+    color: var(--aux-color-1);
 }
 
-/* Menú de acceso (signup / login) */
-.header__login-menu {
-    list-style-type: none;
+/* Área de acceso (signup, login / nombre del usuario, logout) */
+.header__login-area {
+    flex: 1 1 35%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding: 0.5rem 0 0;
 }
 
 /* Ítem del menú de acceso */
 .header__signup, .header__login {
-    display: inline-block;
     font-weight: bold;
 }
 
@@ -111,18 +121,13 @@ header {
     background-color: var(--aux-color-1);
 }
 
-/* Aspecto de la liga de entrada antes de ser cliqueado por primera vez (verde). */
-.header__signup a:link {
+/* Aspecto de la liga de registro (siempre debe ser violeta). */
+.header__signup a:link, .header__signup a:visited {
     color: var(--accent-color-2);
 }
 
-/* LA liga de entrada siemrpe debe verse igual aunque ya se haya visitado antes. */
-.header__signup a:visited {
-    color: var(--accent-color-2);
-}
-
-/* Aspecto de la liga de entrada antes de ser cliqueado por primera vez (violeta). */
-.header__login a:link {
+/* Aspecto de la liga de entrada (siempre debe ser verde). */
+.header__login a:link, .header__login a:visited {
     color: var(--accent-color-3);
 }
 
@@ -134,12 +139,16 @@ header {
 
 /* Área de búsqueda */
 .header__search-area {
-    float: right;
-    padding: 1rem 1rem 0;
+    flex: 1 1 15%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    padding: 0.5rem 0.5rem 0;
 }
 
 /* Fieldset del área de búsqueda */
 #search-form fieldset {
+    display: flex;
     border: none;
 }
 
@@ -168,17 +177,16 @@ header {
 
 /* Área inferior derecha del encabezado (contenedor del menú principal). */
 .header__lower-right {
-    position: relative;
-    bottom: 0;
+    flex: 1 1 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 /* Elemento <ul> que contiente las opciones del menú principal. */
 .header__main-menu {
-    position: absolute;
-    bottom: 7px;
-    right: 1rem;
-    list-style-type: none;
-    text-align: end;
+    padding: 0 0 0.75rem;
 }
 
 /* Elemento <li> para cada uno de las opciones del menú principal. */
@@ -207,6 +215,7 @@ header {
 
 /* Aspecto de las ligas del menú principal al pasar el puntero o estar activas. */
 .header__main-menu-item a:hover, .header__main-menu-item a:active {
+    font-family: Jost, Calibri, Arial, Helvetica, sans-serif;
     background-color: var(--aux-color-1);
     color: white;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -221,9 +230,12 @@ header {
 
 /* El bloque main en general. */
 main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    column-gap: 1rem;
     background-color: var(--background-main);
-    margin: 0;
-    padding: 0;
 }
 
 /* Contenedor del mapa (ser requiere acceso al API de Google Maps) */
@@ -241,23 +253,25 @@ main {
 /* Área de filtros de búsqueda de propiedades. */
 .main__filters-container {
     background-color: var(--aux-color-1);
-    margin: 0;
-    padding: 0;
 }
 
-/* Quitar bordes al fieldset. */
-#main__search-filters-form fieldset {
-    border: none;
+/* Disposición de los bloques de campos dentro de la forma */
+#main__filters-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    padding: 1rem 1rem;
 }
 
 /* Etiquetas en negritas. */
-#main__search-filters-form label {
+#main__filters-form label {
     font-weight: bold;
     color: var(--accent-color-1);
 }
 
 /* Botón "Aplicar Filtros" */
-#main__search-filters-form input[type='submit'] {
+#main__filters-form input[type='submit'] {
     padding: 0.25rem 0.5rem;
     border: solid medium var(--accent-color-1);
     border-radius: 0.5rem;
@@ -268,37 +282,511 @@ main {
 }
 
 /* Sliders */
-#main__search-filters-form input[type='range'] {
+#main__filters-form input[type='range'] {
     accent-color: var(--accent-color-1);
     color: var(--aux-color-2);
 }
 
 /* Lista de selección */
-#main__search-filters-form select {
+#main__filters-form select {
     border: solid medium var(--accent-color-1);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
     font-weight: bold;
 }
 
-/* Lista para dividir los filtros en columnas (disposición horizontal) */
-.main__filters-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+#main__filters-form div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+/* Contenedores de las secciones. */
+.main__section-container {
+    display: flex;
+    margin: 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+/* Section impar. */
+.main__section-container:nth-child(odd) {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+}
+
+/* Section par. */
+.main__section-container:nth-child(even) {
+    flex-flow: row-reverse wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+}
+
+/* Contenedor de los asides dentro de los contenedores de las secciones. */
+.main__section-aside-container {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 50%;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+/* Alineación de títulos dentro de los asides. */
+.main__section-aside-container h2, .main__section-aside-container h3 {
     text-align: center;
 }
 
-/* Columna de campos */
-.main__filters-list-item {
-    display: inline-block;
-    margin: 0 2rem;
-    vertical-align: middle;
+/* Fondo del aside en containders impares. */
+.main__section-container:nth-child(odd) .main__section-aside-container {
+    background-color: var(--aux-color-2);
 }
 
-/* Lista para dividir cada columna de campos en filas (disposición vertical) */
-.main__filter-column {
-    list-style-type: none;
+/* Fondo del aside en containders pares. */
+.main__section-container:nth-child(even) .main__section-aside-container {
+    background-color: var(--accent-color-3);
+}
+
+/* Contenedor del texto dentro de los contenedores de las secciones. */
+.main__section-text-container {
+    flex: 1 1 50%;
+    padding: 0 2rem 2rem;
+}
+
+/* Párrafos dentro del section. */
+section p {
+    text-justify: distribute;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+
+.main__photo {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+/* Tabla de planes. */
+.main__plans-table {
+    margin-top: 2rem;
+}
+
+/* Lista de verificación de documentos. */
+.main__lessors-checklist {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    list-style: url('../img/check-mark.png');
+}
+
+/* Contenedor de testimonios. */
+.main__testimonials-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+}
+
+/* Testionio individual. */
+.main__testimonial-item {
+    max-width: 400px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    padding-bottom: 1.5rem;
+}
+
+/* Alineación de los testimonios pares */
+.main__testimonial-item:nth-child(even) {
+    align-self: flex-end;
+}
+
+/* El primer testimonio no tiene margen superior. */
+.main__testimonial-item:first {
+    margin-top: 0;
+}
+
+/* Título del testimonio. */
+.main__testimonial-title {
+    font-style: italic;
+    color: var(--accent-color-1);
+    text-align: center;
+}
+
+/* Texto del testimonio. */
+.main__testimonial-text {
+    margin: 1rem auto 0;
+    text-align: center;
+}
+
+/* Autor del testimonio. */
+.main__testimonial-author {
+    font-style: italic;
+    text-align: end;
+    margin-top: 0;
+}
+
+/* Antes del nombre de cada autor del testimonio. */
+.main__testimonial-author::before {
+    content: '-- ';
+}
+
+/* Contenedores de los botones "Leer más..." y "¡Quiero registrarme ahora!" */
+.main__signup-now-button, .main__read-more-button {
+    margin-top: 2rem;
+}
+
+/* Botones "Leer más..." y "¡Quiero registrarme ahora!" */
+.main__signup-now-button > button, .main__read-more-button > button {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Ligas de los botones "Leer más..." y "¡Quiero registrarme ahora!" */
+.main__signup-now-button > button > a, .main__read-more-button > button > a {
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Color de la liga del botón "Leer más..." */
+.main__read-more-button > button > a {
+    color: var(--accent-color-3);
+}
+
+/* Color de la liga del botón "¡Quiero registrarme ahora!" */
+.main__signup-now-button > button > a {
+    color: var(--accent-color-2);
+}
+
+/* Colores del botón "Leer más..." */
+.main__read-more-button > button {
+    border: medium solid var(--accent-color-3);
+}
+
+/* Colores del botón "¡Quiero registrarme ahora!" */
+.main__signup-now-button > button {
+    border: medium solid var(--accent-color-2);
+}
+
+
+/*******************************************************************************
+
+    Página y formulario de acceso
+
+*******************************************************************************/
+
+/* Contenedor de página de acceso */
+.main__login-container {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor del formulario de ingreso. */
+.main__login-form-container {
+    flex: 1 1 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título del formulario de ingreso. */
+.main__login-title {
+    text-align: center;
+    font-size: 4rem;
+    line-height: 2rem;
+    color: var(--text-color);
+}
+
+/* Sutítulo del formulario de ingreso. */
+.main__login-subtitle {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Formulario de ingreso. */
+#login-form {
+    margin-top: 3rem;
+    max-width: fit-content;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    color: var(--text-color);
+    row-gap: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* Fila de campos de ingreso. */
+.main__login-form-input-group {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+/* Etiquetas campo de ingreso. */
+.main__login-form-input-group label {
+    flex: 0 0 33%;
+    align-self: center;
+}
+
+/* Campos de ingreso. */
+.main__login-form-input-group input[type='email'], .main__login-form-input-group input[type='password'] {
+    flex: 1 1 67%;
+    border: medium solid var(--accent-color-1);
+    padding: 0.5rem;
+}
+
+/* Campos de ingreso cuando obtienen el foco o pasa encima el puntero del mouse. */
+.main__login-form-input-group input[type='email']:focus, 
+.main__login-form-input-group input[type='email']:hover,
+.main__login-form-input-group input[type='password']:focus,
+.main__login-form-input-group input[type='password']:hover {
+    border: medium solid var(--aux-color-1);
+}
+
+/* Contenedor de liga "Olvidé mi contraseña". */
+.main__login-forgot-password-container {
+    text-align: end;
+}
+
+/* Liga "Olvidé mi contraseña". */
+.main__login-forgot-password-container > p > a,
+.main__login-forgot-password-container > p > a:link {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    color: var(--aux-color-2);
+}
+
+/* Liga "Olvidé mi contraseña" cuando ha sido visitado. */
+.main__login-forgot-password-container > p > a:visited {
+    background-color: transparent;
+    color: var(--aux-color-2);
+}
+
+/* Liga "Olvidé mi contraseña" cuando obtiene el foco, pasa el mouse encima o está activo. */
+.main__login-forgot-password-container > p > a:focus,
+.main__login-forgot-password-container > p > a:hover,
+.main__login-forgot-password-container > p > a:active {
+    background-color: var(--aux-color-2);
+    color: var(--clear-color);
+}
+
+/* Contenedor del botón "Entrar". */
+.main__login-form-submit-row {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+}
+
+/* Aspecto del botón "Entrar". */
+.main__login-form-submit-row input[type='submit'] {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    color: var(--clear-color);
+    background-color: var(--text-color);
+    border: medium solid var(--accent-color-3);
+}
+
+/* Aspecto del botón "Entrar" cuando obtiene el foco o pasa encima el puntero del mouse. */
+.main__login-form-submit-row input[type='submit']:hover,
+.main__login-form-submit-row input[type='submit']:focus {
+    background-color: var(--accent-color-3);
+    border: medium solid var(--text-color);
+}
+
+/* Contenedor del aside de ingreso. */
+.main__login-aside-container {
+    flex: 1 1 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    background-image: url('../img/bg-login.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* Título del aside de ingreso. */
+.main__login-aside-title {
+    font-size: 3.5rem;
+    color: var(--text-color);
+}
+
+/* Contenedor del texto de registro. */
+.main__login-form-signup-container {
+    text-align: center;
+}
+
+/* Liga "registrarme". */
+.main__login-form-signup-container > p > a,
+.main__login-form-signup-container > p > a:link {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--aux-color-2);
+    padding: 0.25rem 0.25rem;
+}
+
+/* Liga "registrarme" una vez visitada. */
+.main__login-form-signup-container > p > a:visited {
+    color: var(--aux-color-2);
+}
+
+/* Liga "registrarme" cuando pasa el punter del mouse encima, obtiene el foco o está activa. */
+.main__login-form-signup-container > p > a:hover,
+.main__login-form-signup-container > p > a:focus,
+.main__login-form-signup-container > p > a:active {
+    background-color: var(--aux-color-2);
+    color: var(--clear-color);
+}
+
+
+/*******************************************************************************
+
+    Formulario de Contacto
+
+*******************************************************************************/
+
+/* Contenedor del formulario de contacto */
+.main__contact-form-container {
+    background-image: url("../img/bg_contact-main_right.jpg");
+    background-position-x: left;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: space-around;
+    padding: 2rem 0;
+}
+
+/* Título del formulario. */
+.main__contact-form-header {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    margin: 1rem 2rem;
+}
+
+/* Título del formulario. */
+.main__contact-form-title {
+    font-size: 2rem;
+}
+
+/* Subtítulo del formulario. */
+.main__contact-form-subtitle {
+    color: var(--contact-form-accent-1);
+}
+
+/* Aspecto general del formulario. */
+#contact-form {
+    font-family: Padauk, Arial, Helvetica, sans-serif;
+    font-size: large;
+    width: 600px;
+    min-width: 400px;
+    padding: 2rem 1rem;
+    color: var(--contact-form-fg);
+    margin: 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+#contact-form fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    row-gap: 1rem;
+    border: medium solid var(--contact-form-accent-2);
+    /* border-radius: 1em; */
+}
+
+#contact-form fieldset legend {
+    font-weight: bold;
+}
+
+#contact-form input[type='text'], #contact-form input[type='email'], #contact-form input[type='tel'] {
+    flex: 1 1 50%;
+    border: solid medium var(--contact-form-accent-2);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+#contact-form input[type='text']:focus, #contact-form input[type='email']:focus, #contact-form input[type='tel']:focus {
+    border: solid medium var(--contact-form-accent-1);
+}
+
+#contact-form textarea {
+    flex: 1 1 50%;
+    margin: 0.75rem 1.75rem;
+    border: solid medium var(--contact-form-accent-2);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+#contact-form textarea:focus {
+    border: solid medium var(--contact-form-accent-1);
+}
+
+#contact-form input[type='submit'], #contact-form input[type='reset'] {
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    background-color: #CAF0F8;
+    font-weight: bold;
+}
+
+#contact-form input[type='submit']:hover, #contact-form input[type='reset']:hover {
+    color: white;
+    background-color: #03045E;
+}
+
+#contact-form input[type='submit'] {
+    border: outset medium var(--contact-form-accent-2);
+    color: var(--contact-form-accent-2);
+}
+
+#contact-form input[type='reset'] {
+    border: outset medium var(--contact-form-accent-1);
+    color: var(--contact-form-accent-1);
+}
+
+.main__contact-form-input-group {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    margin: 0 1.75rem 0.75rem;
+}
+
+.main__contact-form-checkbox-group {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    margin: 0 1.75rem 0.75rem;
+    accent-color: var(--contact-form-accent-2);
+}
+
+.main__contact-form-submit-group {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-content: stretch;
+    column-gap: 1rem;
 }
 
 
@@ -310,37 +798,35 @@ main {
 
 /* El bloque footer en general. */
 footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
     background-color: var(--background-footer);
     color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    border: dashed thin transparent;
 }
 
-/* Lista para dividir el footer en columnas (disposición horizontal) */
-.footer__horizontal-list {
-    list-style-type: none;
-    width: 60%;
-    margin: 1rem auto 2rem;
-    padding: 0;
+/* Fila superior del pié de página. */
+.footer__top-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: stretch;
 }
 
-/* Columna individual (li) */
-.footer__horizontal-list-item {
-    display: inline-block;
-    vertical-align: top;
-    width: 23%;
+/* Columna en el pié de página. */
+.footer__column {
+    padding: 1rem 1rem 0;
 }
 
 /* Lista para dividir una columna en filas (disposición vertical) */
 .footer__bottom-menu {
-    list-style-type: none;
+    list-style: none;
 }
 
 /* Cada elemento dentro del menú en el pié de página. */
 .footer__bottom-menu-item {
-    margin: 0;
-    padding: 0.15rem 0;
+    padding: 0.15rem;
 }
 
 /* Liga dentro de cada elemento del menú en el pié de página */
@@ -361,15 +847,31 @@ footer {
     background-color: var(--aux-color-1);
 }
 
-/* Lista para colocar los íconos de redes sociales en horizontal */
+/* Lista de redes sociales. */
 .footer__social-media-list {
-    list-style-type: none;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
 }
 
-/* Cada ícono de redes sociales */
-.footer__social-media-list-item {
-    display: inline-block;
-    margin: 0 0.25rem;
+/* Títulos de secciones en el pié de página */
+.footer__footer-section-title {
+    font-size: large;
+    color: var(--accent-color-2);
+}
+
+/* Lista de tiendas de apps móviles. */
+.footer__mobile-apps-list {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    column-gap: 1rem;
 }
 
 /* Lista para colocar los campos del formulario de subscripción en filas (disposición vertical) */
@@ -378,17 +880,25 @@ footer {
     text-align: center;
 }
 
+.footer__newsletter-form-field-group {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 /* Campo email del formulario de subscripción. */
-#footer__subscription-form-email {
+#newsletter-subscription-form-input-email {
     width: 100%;
     border: solid medium var(--accent-color-1);
     border-radius: 0.5rem;
     margin: 0.5rem 0;
     padding: 0.5rem 0.5rem 0.25rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /* Botón "Suscríbeme" del formulario de subscripción. */
-#footer__subscription-form input[type='submit'] {
+#footer__newsletter-subscription-form input[type='submit'] {
     width: 100%;
     padding: 0.5rem 0.5rem;
     border: none;
@@ -400,7 +910,16 @@ footer {
 }
 
 /* Área del Copyright y Créditos. */
-.footer__span {
-    text-align: center;
+.footer__bottom-row {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
     color: var(--clear-color);
+}
+
+/* Texto de Derechos Reservados. */
+.footer__copyright {
+    font-style: italic;
+    font-size: medium;
 }
